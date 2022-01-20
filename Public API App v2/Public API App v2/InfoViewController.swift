@@ -53,6 +53,6 @@ extension InfoViewController {
             nameLabel.text = memesInfo?.name
             idLabel.text = "ID: \(memesInfo?.id ?? "")"
             sizeLabel.text = String("\(memesInfo?.width ?? 0) x \(memesInfo?.height ?? 0)")
-            countLabel.text = String("Box count: \(memesInfo?.boxCount ?? 0)")
+            countLabel.text = String("Box count: \(memesInfo?.box_count ?? 0)")
     }
 }

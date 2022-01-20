@@ -25,24 +25,25 @@ class TableViewController: UITableViewController {
         
         tableView.rowHeight = 100
         tableView.backgroundColor = .black
-        NetworkingManager.shared.fetch(dataType: MemsModel.self, from: memesURL) { result in
-            switch result {
-            case .success(let mems):
-                self.memModel = mems
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        NetworkingManager.shared.fetch(dataType: MemsModel.self, from: memesURL) { result in
+//            switch result {
+//            case .success(let mems):
+//                self.memModel = mems
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        fetchGetAlamofire()
         tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(memes.count)
         return memes.count
@@ -75,12 +76,18 @@ class TableViewController: UITableViewController {
 
 extension TableViewController {
     
-//    private func fetchData(from url: String?) {
-//        NetworkManager.shared.fetch(dataType: Memes.self, from: url, completion: { result in
-//            self.memes = result
-//            tableView.reloadData()
-//        })
-//    }
+    private func fetchGetAlamofire() {
+        NetworkingManager.shared.fetchDataWithAlomafire(memesURL) { result in
+            switch result {
+            case .success(let mems):
+                self.memes = mems
+//                print(self.memes)
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     private func successAlert() {
     DispatchQueue.main.async {

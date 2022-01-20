@@ -17,10 +17,37 @@ struct DataMemes: Decodable {
 }
 
 struct Memes: Decodable {
-    let id: String
-    let name: String
-    let url: String
+    let id: String?
+    let name: String?
+    let url: String?
     let width: Int?
     let height: Int?
-    let boxCount: Int?
+    let box_count: Int?
+    
+    //инициализатор принимает словарь
+    init(memsData: [String: Any]) {
+        //инициализируем свойства
+        id = memsData["id"] as? String
+        name = memsData["name"] as? String
+        url = memsData["url"] as? String
+    width = memsData["width"] as? Int
+        height = memsData["height"] as? Int
+        box_count = memsData["box_count"] as? Int
+    }
+    //инициализатор для ручного парсинга. присваиваем значения для нового словаря, которые мы сюда передадим
+    
+    static func getMemes(from value: Any) -> [Memes] {
+        guard let memesData = value as? [[String: Any]] else { return [] }
+        
+        var memes = [Memes]()
+        //пустой массив
+        for memData in memesData {
+            let mem = Memes(memsData: memData)
+            memes.append(mem)
+        }
+        //    наполняем его
+        return memes
+        //    возвращаем
+    }
 }
+

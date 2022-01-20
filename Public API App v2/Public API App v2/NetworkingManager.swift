@@ -7,6 +7,7 @@
 
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidURL
@@ -54,54 +55,32 @@ class NetworkingManager {
         return try? Data(contentsOf: imageURL)
     }
     
+    func fetchDataWithAlomafire(_ url: String, completion: @escaping(Result<[Memes], NetworkError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                guard let statusCode = dataResponse.response?.statusCode else { return }
+//                print("Status Code: ", statusCode)
+                if(200..<300).contains(statusCode){
+                    guard let value = dataResponse.value else {return}
+//                    print("value: ", value)
+                } else {
+                    guard let error = dataResponse.error else {return}
+                    print("Error: ", error)
+                }
+
+                switch dataResponse.result {
+                case .success(let value):
+                    print(value)
+                    guard let memesData = value as? [[String: Any]] else { return }
+                    print(memesData)
+                    
+                    let memes = Memes.getMemes(from: value)
+                    completion(.success(memes))
+                case .failure:
+                    completion(.failure(.decodingError))
+                }
+            }
+    }
 }
 
-
-//    func fetchMemes(url: String, complition: @escaping(_ mem: MemsModel) -> Void) {
-//        guard let url = URL(string: url) else { return }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, let _ = response else {
-////                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//
-//            do {
-//                let memsDescription = try JSONDecoder().decode(MemsModel.self, from: data)
-//                DispatchQueue.main.async {
-//                    complition(memsDescription)
-////                    print(memsDescription)
-//                }
-////                self.successAlert()
-////                print("MemesDescription: \(memsDescription)")
-//            } catch {
-////                self.failedAlert()
-////                print(error.localizedDescription)
-//            }
-//        }.resume()
-//    }
-
-//    func fetchMemes(url: String, complition: @escaping(Result<MemsModel, NetworkingError>) -> Void) {
-//        guard let url = URL(string: url) else { return }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, let _ = response else {
-////                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//
-//            do {
-//                let memsDescription = try JSONDecoder().decode(MemsModel.self, from: data)
-//                DispatchQueue.main.async {
-//                    complition(memsDescription)
-////                    print(memsDescription)
-//                }
-////                self.successAlert()
-////                print("MemesDescription: \(memsDescription)")
-//            } catch {
-////                self.failedAlert()
-////                print(error.localizedDescription)
-//            }
-//        }.resume()
-//    }
-//}
