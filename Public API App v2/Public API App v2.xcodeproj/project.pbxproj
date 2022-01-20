@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		5F020F1527988282004E1010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F1427988282004E1010 /* AppDelegate.swift */; };
 		5F020F1727988282004E1010 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F1627988282004E1010 /* SceneDelegate.swift */; };
-		5F020F1927988282004E1010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F1827988282004E1010 /* ViewController.swift */; };
 		5F020F1C27988282004E1010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F020F1A27988282004E1010 /* Main.storyboard */; };
 		5F020F1E27988285004E1010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F020F1D27988285004E1010 /* Assets.xcassets */; };
 		5F020F2127988285004E1010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F020F1F27988285004E1010 /* LaunchScreen.storyboard */; };
+		5F020F292798848D004E1010 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F282798848D004E1010 /* TableViewController.swift */; };
+		5F020F2B279885B5004E1010 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F2A279885B5004E1010 /* InfoViewController.swift */; };
+		5F020F2D2798861B004E1010 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F2C2798861B004E1010 /* NetworkingManager.swift */; };
+		5F020F2F27988657004E1010 /* MemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F2E27988657004E1010 /* MemsModel.swift */; };
+		5F020F3127996DE9004E1010 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F020F3027996DE9004E1010 /* TableViewCell.swift */; };
 		F4C092EAB47CC3217709C3EA /* Pods_Public_API_App_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4872C6B9AA6FC37136C1E4D /* Pods_Public_API_App_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +26,15 @@
 		5F020F1127988282004E1010 /* Public API App v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Public API App v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F020F1427988282004E1010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F020F1627988282004E1010 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5F020F1827988282004E1010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5F020F1B27988282004E1010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F020F1D27988285004E1010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F020F2027988285004E1010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F020F2227988285004E1010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F020F282798848D004E1010 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		5F020F2A279885B5004E1010 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		5F020F2C2798861B004E1010 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		5F020F2E27988657004E1010 /* MemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemsModel.swift; sourceTree = "<group>"; };
+		5F020F3027996DE9004E1010 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F4872C6B9AA6FC37136C1E4D /* Pods_Public_API_App_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Public_API_App_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,11 +81,15 @@
 			children = (
 				5F020F1427988282004E1010 /* AppDelegate.swift */,
 				5F020F1627988282004E1010 /* SceneDelegate.swift */,
-				5F020F1827988282004E1010 /* ViewController.swift */,
 				5F020F1A27988282004E1010 /* Main.storyboard */,
 				5F020F1D27988285004E1010 /* Assets.xcassets */,
 				5F020F1F27988285004E1010 /* LaunchScreen.storyboard */,
 				5F020F2227988285004E1010 /* Info.plist */,
+				5F020F282798848D004E1010 /* TableViewController.swift */,
+				5F020F2A279885B5004E1010 /* InfoViewController.swift */,
+				5F020F2C2798861B004E1010 /* NetworkingManager.swift */,
+				5F020F2E27988657004E1010 /* MemsModel.swift */,
+				5F020F3027996DE9004E1010 /* TableViewCell.swift */,
 			);
 			path = "Public API App v2";
 			sourceTree = "<group>";
@@ -88,7 +100,6 @@
 				25B6CAEEAB5AF4732140CE5A /* Pods-Public API App v2.debug.xcconfig */,
 				5D7DA1088727D82182078433 /* Pods-Public API App v2.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F020F1927988282004E1010 /* ViewController.swift in Sources */,
 				5F020F1527988282004E1010 /* AppDelegate.swift in Sources */,
+				5F020F292798848D004E1010 /* TableViewController.swift in Sources */,
+				5F020F2B279885B5004E1010 /* InfoViewController.swift in Sources */,
+				5F020F2D2798861B004E1010 /* NetworkingManager.swift in Sources */,
 				5F020F1727988282004E1010 /* SceneDelegate.swift in Sources */,
+				5F020F3127996DE9004E1010 /* TableViewCell.swift in Sources */,
+				5F020F2F27988657004E1010 /* MemsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
